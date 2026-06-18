@@ -69,8 +69,29 @@ def show_creature_form():
 #-----------------------------------------------------------
 @app.post("/creature/new")
 def process_creature_form():
-    return render_template("pages/creature_form.jinja")
-    print(request.form)
+    # get the form data
+    species = request.form.get("species", "unknown").strip()
+    name = request.form.get("name", "unknown").strip()
+    
+#-----protects from sql injection attacks-----
+
+    # Connect to db
+    with connect_db() as db:
+        sql = """
+            INSERT INTO creatures (species, name)
+            VALUES (?, ?)
+        """
+        params = (species, name)
+        
+        # run the query
+        db.execute(sql, params)
+
+        flash(f"Creature {name} added succesfully")
+
+        # We're done so back to the list
+        return redirect("/creatures")
+    
+       
 
 
 
