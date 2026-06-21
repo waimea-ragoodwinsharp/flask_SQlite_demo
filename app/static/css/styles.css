@@ -6,14 +6,14 @@
 :root {
     --text-col:         #244;
 
-    --back-col:         #dff;
-    --back-col-dark:    #bdd;
+    --back-col:         rgb(221, 255, 221);
+    --back-col-dark:    rgb(187, 221, 196);
 
-    --border-col:       #355;
+    --border-col:       rgb(51, 85, 54);
 
-    --accent-col:       #e43;
+    --accent-col:       rgb(238, 51, 207);
 
-    --accenttimes2:      rgb(148, 42, 32);
+    --accenttimes2:      rgb(148, 32, 138);
 }
 
 
